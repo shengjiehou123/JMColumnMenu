@@ -18,4 +18,9 @@
 /** 编辑按钮 */
 @property (nonatomic, strong) UIButton *editBtn;
 
+/** 标题 */
+@property (nonatomic, strong) UILabel *title;
+/** 描述 */
+@property (nonatomic, strong) UILabel *detail;
+
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JMColumnMenuModel.h"
+#import "Masonry.h"
 
 @interface JMColumnMenuCell : UICollectionViewCell
+
+@property (nonatomic, strong) UIImageView  *imageView;
 
 /** title */
 @property (nonatomic, strong) UILabel *title;

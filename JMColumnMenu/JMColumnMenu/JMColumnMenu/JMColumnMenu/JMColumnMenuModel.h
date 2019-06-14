@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "JMColumnMenu.h"
-
 @interface JMColumnMenuModel : NSObject
 
+
+
+/** backgroundUrl */
+@property (nonatomic, copy) NSString *backgroundUrl;
 /** title */
 @property (nonatomic, copy) NSString *title;
 /** 是否选中 */
@@ -21,5 +24,6 @@
 @property (nonatomic, assign) BOOL showAdd;
 /** type */
 @property (nonatomic, assign) JMColumnMenuType type;
-
+/** interestId */
+@property (nonatomic,copy)NSString *interestId1;
 @end

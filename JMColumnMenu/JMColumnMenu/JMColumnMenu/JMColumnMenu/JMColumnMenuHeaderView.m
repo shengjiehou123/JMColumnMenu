@@ -8,13 +8,10 @@
 
 #import "JMColumnMenuHeaderView.h"
 #import "UIView+JM.h"
-
+#import "JMConfig.h"
 @interface JMColumnMenuHeaderView()
 
-/** 标题 */
-@property (nonatomic, strong) UILabel *title;
-/** 描述 */
-@property (nonatomic, strong) UILabel *detail;
+
 
 @end
 
@@ -22,24 +19,24 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [JMConfig colorWithHexString:@"#171226"];
     
         self.title = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.title.font = [UIFont systemFontOfSize:16];
-        self.title.textColor = [UIColor blackColor];
+        self.title.font = [UIFont boldSystemFontOfSize:kSCRATIO(16)];
+        self.title.textColor = [UIColor whiteColor];
         [self addSubview:self.title];
 
         self.detail = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.detail.textColor = [UIColor lightGrayColor];
-        self.detail.font = [UIFont systemFontOfSize:14];
+        self.detail.textColor = [JMConfig colorWithHexString:@"#8A8597"];
+        self.detail.font = [UIFont systemFontOfSize:kSCRATIO(13)];
         [self addSubview:self.detail];
         
         self.editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.editBtn setTitle:@"编辑" forState:UIControlStateNormal];
         [self.editBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        self.editBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        self.editBtn.titleLabel.font = [UIFont systemFontOfSize:kSCRATIO(12)];
         self.editBtn.layer.masksToBounds = YES;
-        self.editBtn.layer.cornerRadius = 6.f;
+        self.editBtn.layer.cornerRadius = kSCRATIO(6);
         self.editBtn.layer.borderColor = [UIColor redColor].CGColor;
         self.editBtn.layer.borderWidth = 1.f;
         self.editBtn.hidden = YES;
@@ -51,16 +48,16 @@
 }
 
 - (void)initFrame {
-    CGFloat titleX = 12;
+    CGFloat titleX = kSCRATIO(5);
     CGFloat titleW = [self returnTitleSize].width;
-    CGFloat titleH = 16;
+    CGFloat titleH = kSCRATIO(22);
     CGFloat titleY = self.height * 0.5 - titleH * 0.5;
     self.title.frame = CGRectMake(titleX, titleY, titleW, titleH);
     
-    CGFloat detailW = 160;
-    CGFloat detailH = 16;
+    CGFloat detailW = kSCRATIO(160);
+    CGFloat detailH = kSCRATIO(22);
     CGFloat detailY = titleY;
-    CGFloat detailX = CGRectGetMaxX(self.title.frame) + 10;
+    CGFloat detailX = CGRectGetMaxX(self.title.frame) + kSCRATIO(10);
     self.detail.frame = CGRectMake(detailX, detailY, detailW, detailH);
     
     self.editBtn.centerY = self.title.centerY;

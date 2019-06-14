@@ -8,6 +8,7 @@
 
 #import "JMColumnMenuFooterView.h"
 #import "UIView+JM.h"
+#import "JMConfig.h"
 
 @interface JMColumnMenuFooterView()
 
@@ -23,16 +24,16 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [JMConfig colorWithHexString:@"#171226"];
         
         self.title = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.title.font = [UIFont systemFontOfSize:16];
-        self.title.textColor = [UIColor blackColor];
+        self.title.font = [UIFont boldSystemFontOfSize:kSCRATIO(16)];
+        self.title.textColor = [UIColor whiteColor];
         [self addSubview:self.title];
         
         self.detail = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.detail.textColor = [UIColor lightGrayColor];
-        self.detail.font = [UIFont systemFontOfSize:14];
+        self.detail.textColor = [JMConfig colorWithHexString:@"#8A8597"];
+        self.detail.font = [UIFont systemFontOfSize:kSCRATIO(13)];
         [self addSubview:self.detail];
         
         [self initFrame];
@@ -41,17 +42,17 @@
 }
 
 - (void)initFrame {
-    CGFloat titleX = 12;
+    CGFloat titleX = kSCRATIO(5);
     CGFloat titleW = [self returnTitleSize].width;
-    CGFloat titleH = 16;
+    CGFloat titleH = kSCRATIO(22);
     CGFloat titleY = self.height * 0.5 - titleH * 0.5;
-    self.title.frame = CGRectMake(titleX, titleY, titleW, titleH);
+    self.title.frame = CGRectMake(titleX, titleY+kSCRATIO(10), titleW, titleH);
     
-    CGFloat detailW = 160;
-    CGFloat detailH = 16;
+    CGFloat detailW = kSCRATIO(160);
+    CGFloat detailH = kSCRATIO(22);
     CGFloat detailY = titleY;
-    CGFloat detailX = CGRectGetMaxX(self.title.frame) + 10;
-    self.detail.frame = CGRectMake(detailX, detailY, detailW, detailH);
+    CGFloat detailX = CGRectGetMaxX(self.title.frame) + kSCRATIO(10);
+    self.detail.frame = CGRectMake(detailX, detailY+kSCRATIO(10), detailW, detailH);
 
 }
 
