@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kSCRATIO(x)   ceil(((x) * ([UIScreen mainScreen].bounds.size.width / 375)))
+
 typedef NS_ENUM(NSInteger, JMColumnMenuType) {
     JMColumnMenuTypeTencent, //腾讯新闻
     JMColumnMenuTypeTouTiao, //今日头条
@@ -28,6 +30,7 @@ typedef NS_ENUM(NSInteger, JMColumnMenuType) {
 - (void)columnMenuDidSelectTitle:(NSString *)title Index:(NSInteger)index;
 
 @end
+typedef void(^Menubackblock)();
 
 @interface JMColumnMenu : UIViewController
 
@@ -49,5 +52,7 @@ typedef NS_ENUM(NSInteger, JMColumnMenuType) {
 @property (nonatomic, copy) NSString *navTitleStr;
 /** 导航栏右侧关闭按钮 */
 @property (nonatomic, strong) UIImage *navRightIV;
+
+@property (nonatomic, strong)Menubackblock menubackblock;
 
 @end
